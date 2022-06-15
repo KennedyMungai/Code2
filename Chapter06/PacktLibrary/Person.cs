@@ -23,7 +23,7 @@ public class Person : Object
     /// <returns></returns>
     public static Person Procreate(Person p1, Person p2)
     {
-        Person baby = new
+        Person baby = new()
         {
             Name=$"Baby of {p1.Name} and {p2.Name}"
         };
