@@ -4,8 +4,6 @@ namespace Packt.Shared;
 
 public class Person
 {
-    public static void Main(string[] args)
-    {
-        
-    }
+    public string Name { get; set; }
+    public DateTime DateOfBirth { get; set; }
 }
