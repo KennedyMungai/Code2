@@ -1,5 +1,5 @@
 using System.Reflection.Emit;
-using Microsoft.EntityFraneworkCore;
+using Microsoft.EntityFrameworkCore;
 
 using static System.Console;
 
@@ -20,7 +20,7 @@ public class Northwind : DbContext
         }
     }
 
-    protected override void OnModelCreating(ModuleBuilder modelBuilder)
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         //An example of using Fluent API instead of attributes to limit the length of a category name to 15
         modelBuilder.Entity<Category>()
