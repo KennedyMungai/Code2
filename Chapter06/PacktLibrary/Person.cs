@@ -43,4 +43,27 @@ public class Person : Object
     {
         return Procreate(this, partner);
     }
+
+
+    //delegate field
+    public EventHandler? Shout;
+
+    //Data field
+    public int AngerLevel;
+
+    //Method
+    public void Poke()
+    {
+        AngerLevel++;
+
+        if(AngerLevel >= 3)
+        {
+            //If something is listening...
+            if(Shout != null)
+            {
+                //... then call the delegate
+                Shout(this, EventArgs.Empty);
+            }
+        }
+    }
 }
