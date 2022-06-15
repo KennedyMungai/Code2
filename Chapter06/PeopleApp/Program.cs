@@ -29,5 +29,11 @@ public class Program
 
         //Call static method
         Person baby2 = Person.Procreate(harry, jill);
+
+        harry.Shout = Harry_Shout;
+        harry.Poke();
+        harry.Poke();
+        harry.Poke();
+        harry.Poke();
     }
 }
