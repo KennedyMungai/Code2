@@ -3,7 +3,6 @@ using static System.Console;
 
 namespace PacktLibrary;
 
-
 public class Person : Object
 {
     //fields
@@ -16,13 +15,18 @@ public class Person : Object
         WriteLine($"{Name} was born on {DateOfBirth.ToLongDateString()}");
     }
 
-    
+    /// <summary>
+    /// This is a method that enables Procreation
+    /// </summary>
+    /// <param name="p1">The first Person</param>
+    /// <param name="p2">The second Person</param>
+    /// <returns></returns>
     public static Person Procreate(Person p1, Person p2)
     {
         Person baby = new
         {
             Name=$"Baby of {p1.Name} and {p2.Name}"
-        }
+        };
 
         p1.Children.Add(baby);
         p2.Children.Add(baby);
@@ -30,5 +34,13 @@ public class Person : Object
         return baby;
     }
 
-
+    /// <summary>
+    /// Makes it easy to call the Procreate method
+    /// </summary>
+    /// <param name="partner">This is the second Person involved</param>
+    /// <returns></returns>
+    public Person ProcreateWith(Person partner)
+    {
+        return Procreate(this, partner);
+    }
 }
