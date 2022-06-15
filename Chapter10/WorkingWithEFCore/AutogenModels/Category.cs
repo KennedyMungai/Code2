@@ -9,6 +9,11 @@ namespace WorkingWithEFCore.AutoGen
     [Index("CategoryName", Name = "CategoryName")]
     public partial class Category
     {
+        public Category()
+        {
+            Products = new HashSet<Product>();
+        }
+
         [Key]
         [Column("CategoryID")]
         public int CategoryId { get; set; }
@@ -18,5 +23,8 @@ namespace WorkingWithEFCore.AutoGen
         public string? Description { get; set; }
         [Column(TypeName = "image")]
         public byte[]? Picture { get; set; }
+
+        [InverseProperty("Category")]
+        public virtual ICollection<Product> Products { get; set; }
     }
 }
