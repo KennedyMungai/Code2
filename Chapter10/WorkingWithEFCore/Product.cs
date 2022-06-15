@@ -11,10 +11,10 @@ public class Product
     [StringLength(40)]
     public string ProductName { get; set; } = null!;
     
-    [Column(Name="UnitPrice", TypeName="money")]
+    [Column("UnitPrice", TypeName="money")]
     public decimal? Cost { get; set; }
     
-    [Column(Name = "UnitsInStock")]
+    [Column("UnitsInStock")]
     public short? Stock { get; set; }
     
     public bool Discontinued { get; set; }
