@@ -1,4 +1,5 @@
-﻿using System.Reflection.Metadata;
+﻿using System.Reflection.Metadata.Ecma335;
+using System.Reflection.Metadata;
 using Packt.Shared;
 
 using static System.Console;
@@ -16,5 +17,7 @@ public class Program
         bob.DateOfBirth = new DateTime(1965, 12, 22);
 
         WriteLine($"{bob.Name} was born in {bob.DateOfBirth.ToLongDateString()}");
+
+        bob.favouriteAncientWonder = WondersOfTheAncientWorld.StatueOfZeusAtOlympius;
     }
 }
