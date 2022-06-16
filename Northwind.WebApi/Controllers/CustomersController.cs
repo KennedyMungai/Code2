@@ -5,7 +5,7 @@ using Northwind.WebApi.Repositories;                    //ICustomerRepository
 namespace Northwind.WebApi.Controllers;
 
 //base address: api/customers
-[Route("api/[controller")]
+[Route("api/[controller]")]
 [ApiController]
 public class CustomersController : ControllerBase
 {
