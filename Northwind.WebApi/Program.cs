@@ -5,6 +5,7 @@ using Packt.Shared;
 using Northwind.WebApi.Repositories;
 using Microsoft.OpenApi.Models;
 using Swashbuckle.AspNetCore.SwaggerUI;
+using Microsoft.AspNetCore.HttpLogging;                                     //HttpLoggingFields
 
 using static System.Console;
 
@@ -44,6 +45,14 @@ builder.Services.AddControllers(
 .AddXmlDataContractSerializerFormatters()
 .AddXmlSerializerFormatters();
 
+builder.Services.AddHttpLogging(options =>
+    {
+        options.LoggingFields = HttpLoggingFields.All;
+        options.RequestBodyLogLimit = 4096;                                     //The default is 32k
+        options.ResponseBodyLogLimit = 4096;                                     //The default is 32k
+    }
+);
+
 builder.Services.AddSwaggerGen(c =>
     {
         c.SwaggerDoc("v1", new()
@@ -71,6 +80,8 @@ if (app.Environment.IsDevelopment())
         }
     );
 }
+
+app.UseHttpLogging();
 
 app.UseHttpsRedirection();
 
