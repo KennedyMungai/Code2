@@ -29,4 +29,25 @@ public class WeatherForecastController : ControllerBase
         })
         .ToArray();
     }
+
+    //GET /weatherforecast
+    [HttpGet]
+    public IEnumerable<WeatherForecast> Get() //Original method
+    {
+        return Get(5);  //Five day forecast
+    }
+
+    //GET /weatherforecasr/7
+    [HttpGet("{days:int}")]
+    public IEnumerable<WeatherForecast> Get(int days)   //New methiod
+    {
+        return Enumerable.Range(1, days).Select(index => 
+            new WeatherForecast
+            {
+                Date = DateTime.Now.AddDays(index),
+                TemperatureC = Random.Shared.Next(-20, 55),
+                Summary = Summaries[Random.Shared.Next(Summaries.Length)]
+            }
+        ).ToArray();
+    }
 }
