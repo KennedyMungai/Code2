@@ -1,6 +1,8 @@
+using System.Data;
 using System.Security.AccessControl;
 using Microsoft.AspNetCore.Mvc.Formatters;
 using Packt.Shared;
+using Northwind.WebApi.Repositories;
 
 using static System.Console;
 
@@ -39,6 +41,8 @@ builder.Services.AddControllers(
 )
 .AddXmlDataContractSerializerFormatters()
 .AddXmlSerializerFormatters();
+
+builder.Services.AddScoped<ICustomerRepository, CustomerRepository>();
 
 var app = builder.Build();
 
