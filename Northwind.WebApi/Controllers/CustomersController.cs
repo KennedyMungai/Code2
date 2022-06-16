@@ -19,7 +19,7 @@ public class CustomersController : ControllerBase
 
     //GET: api/customers
     //GET: api/customers/?country=[country]
-    //This will always return a list of customers (but it mightr be empty)
+    //This will always return a list of customers (but it might be empty)
     [HttpGet]
     [ProducesResponseType(200, Type = typeof(IEnumerable<Customer>))]
     public async Task<IEnumerable<Customer>> GetCustomers(string? country)
