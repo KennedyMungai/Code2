@@ -3,6 +3,8 @@ using System.Security.AccessControl;
 using Microsoft.AspNetCore.Mvc.Formatters;
 using Packt.Shared;
 using Northwind.WebApi.Repositories;
+using Microsoft.OpenApi.Models;
+using Swashbuckle.AspNetCore.SwaggerUI;
 
 using static System.Console;
 
@@ -41,6 +43,15 @@ builder.Services.AddControllers(
 )
 .AddXmlDataContractSerializerFormatters()
 .AddXmlSerializerFormatters();
+
+builder.Services.AddSwaggerGen(c =>
+    {
+        c.SwaggerDoc("v1", new()
+        {
+            Title = "Northwind Servcice API", Version = "v1"
+        });
+    }
+);
 
 builder.Services.AddScoped<ICustomerRepository, CustomerRepository>();
 
