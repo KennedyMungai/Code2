@@ -31,11 +31,11 @@ public class WeatherForecastController : ControllerBase
     }
 
     //GET /weatherforecast
-    [HttpGet]
-    public IEnumerable<WeatherForecast> Get() //Original method
-    {
-        return Get(5);  //Five day forecast
-    }
+    // [HttpGet]
+    // public IEnumerable<WeatherForecast> Get() //Original method
+    // {
+    //     return Get(5);  //Five day forecast
+    // }
 
     //GET /weatherforecasr/7
     [HttpGet("{days:int}")]
