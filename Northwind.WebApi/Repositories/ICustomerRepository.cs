@@ -1,6 +1,4 @@
-using Packt.Shared;
-
-namespace Northwwind.WebApi.Repositories;
+namespace Packt.Shared;
 
 public interface ICustomerRepository
 {
